@@ -11,6 +11,7 @@ ENV NODE_HOME=/usr/share/nodejs \
 
 RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools vim && \
+    git config --global core.editor "vim" && \
     sudo usermod -aG docker coder && \
     curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | sudo bash && \
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
@@ -24,4 +25,5 @@ RUN sudo apt-get update -y && \
     sudo chmod +x /usr/bin/node && \
     sudo chmod +x /usr/bin/npm && \
     rm -rf node.tgz && \
-    sudo npm install -g localtunnel
+    sudo npm install -g localtunnel && \
+    sudo ln -s $NODE_HOME/bin/lt /usr/bin/lt
