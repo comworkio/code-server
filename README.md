@@ -12,6 +12,10 @@ Docker images which inherits [this one](https://hub.docker.com/r/codercom/code-s
 * Github mirror: https://github.com/idrissneumann/code-server.git
 * Gitlab mirror: https://gitlab.com/ineumann/code-server.git
 
+## Docker image
+
+The image is available on docker hub [here](https://hub.docker.com/repository/docker/comworkio/code-server).
+
 ## How to use
 
 Very simple example with docker-compose:
