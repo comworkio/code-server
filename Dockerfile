@@ -7,8 +7,8 @@ ARG NODE_ARCH
 ARG NODE_OS
 
 ENV NODE_HOME=/usr/share/nodejs \
-    COMWORK_LOCAL_TUNNEL_SERVER=http://lt.comwork.io:3200
-    PATH="${PATH}:$NODE_HOME/bin"
+    COMWORK_LOCAL_TUNNEL_SERVER=http://lt.comwork.io:3200 \
+    PATH="${PATH}:${NODE_HOME}/bin"
 
 RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools vim && \
