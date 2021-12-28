@@ -10,7 +10,7 @@ ENV NODE_HOME=/usr/share/nodejs \
     COMWORK_LOCAL_TUNNEL_SERVER=http://lt.comwork.io:3200
 
 RUN sudo apt-get update -y && \
-    sudo apt-get install -y docker docker-compose net-tools vim && \
+    sudo apt-get install -y docker docker-compose net-tools vim jq && \
     git config --global core.editor "vim" && \
     sudo usermod -aG docker coder && \
     curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | sudo bash && \
