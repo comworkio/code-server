@@ -1,0 +1,12 @@
+FROM {{ coder_server_image }}:{{ coder_server_version }}
+
+{% for repo in code_git_workspaces %}
+RUN mkdir -p /home/coder/projects && \
+    cd "/home/coder/projects" && \
+    git clone "{{ repo.git }}" "{{ repo.name }}" && \
+    cd "{{ repo.name }}" && \
+    git config credential.helper store && \
+    git config --global user.email "{{ coder_git_email }}" && \
+    git config --global user.name "{{ coder_git_email }}"
+
+{% endfor %}

@@ -1,0 +1,18 @@
+
+---
+- name: Create coder files
+  become: yes
+  template:
+    src: "{{ item.template }}.j2"
+    dest: "{{ item.path }}/{{ item.template }}"
+    mode: "{{ item.mode }}"
+    group: docker
+  with_items:
+    - { template: docker-compose-code.yml , path: "{{ node_home }}", mode: '0644' }
+    - { template: Dockerfile.code , path: "{{ node_home }}", mode: '0644' }
+    - { template: code_start.sh , path: "{{ node_home }}", mode: '0755' }
+    - { template: code-config.yaml , path: "{{ node_home }}", mode: '0755' }
+
+- name: Run the container
+  become: yes
+  command: "bash {{ node_home }}/code_start.sh"

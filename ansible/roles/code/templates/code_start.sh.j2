@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+{% if code_force_recreate is defined and code_force_recreate %}
+RECREATE_OPT="--force-recreate"
+{% else %}
+RECREATE_OPT=""
+{% endif %}
+
+{% if code_force_rebuild is defined and code_force_rebuild %}
+REBUILD_OPT="--build"
+{% else %}
+REBUILD_OPT=""
+{% endif %}
+
+COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f {{ node_home }}/docker-compose-code.yml up -d ${REBUILD_OPT} ${RECREATE_OPT}

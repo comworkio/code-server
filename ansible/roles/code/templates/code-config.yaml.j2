@@ -1,0 +1,6 @@
+bind-addr: 127.0.0.1:{{ coder_internal_port }}
+{% if coder_password is defined %} 
+auth: password
+password: {{ coder_password }}
+{% endif %}
+cert: false

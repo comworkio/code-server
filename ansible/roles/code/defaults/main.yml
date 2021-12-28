@@ -1,0 +1,13 @@
+---
+coder_server_image: comworkio/code-server
+coder_server_version: 3.12.0
+coder_port: 8020
+coder_internal_port: 8080
+code_force_recreate: true
+code_force_rebuild: true
+coder_password: changeit
+coder_git_email: changeit@changeit.com
+
+code_git_workspaces:
+  - name: code-server
+    git: https://gitlab.comwork.io/oss/code-server.git

@@ -16,7 +16,9 @@ Docker images which inherits [this one](https://hub.docker.com/r/codercom/code-s
 
 The image is available on docker hub [here](https://hub.docker.com/repository/docker/comworkio/code-server).
 
-## How to use
+## Getting started
+
+### Docker image
 
 Very simple example with docker-compose:
 
@@ -44,3 +46,15 @@ cert: false
 ```
 
 Then you can add volum with your workspaces git repositories.
+
+### Ansible role
+
+You can automate your workspaces on a classic VM or compute instance using this [ansible role](./ansible/roles/code) which supports CentOS with docker and docker-compose installed.
+
+You'll just have to complete this yaml repository inventory:
+
+```yaml
+code_git_workspaces:
+  - name: code-server
+    git: https://gitlab.comwork.io/oss/code-server.git
+```
