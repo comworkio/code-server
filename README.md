@@ -56,3 +56,23 @@ code_git_workspaces:
   - name: code-server
     git: https://gitlab.comwork.io/oss/code-server.git
 ```
+
+## Expose your containers with localtunnel
+
+You can expose your containers on internet using [Localtunnel](https://localtunnel.github.io/www/)
+
+For example if you want to expose the 8080 port:
+
+```shell
+lt --port 8080
+```
+
+You containers will have to map the same tcp port on the local network.
+
+You can also use the comwork.io instance of server tunnels if you've been authorized by comwork this way:
+
+```shell
+lt --port 8080 $COMWORK_LOCAL_TUNNEL_SERVER
+```
+
+Either way, you'll get an url as output that you'll be able to share with other people arround the world !
