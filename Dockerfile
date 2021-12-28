@@ -1,15 +1,16 @@
 ARG CODE_SERVER_VERSION
+
+FROM codercom/code-server:${CODE_SERVER_VERSION} AS code-server
+
 ARG NODE_VERSION
 ARG NODE_ARCH
 ARG NODE_OS
-
-FROM codercom/code-server:${CODE_SERVER_VERSION} AS code-server
 
 ENV NODE_HOME=/usr/share/nodejs \
     COMWORK_LOCAL_TUNNEL_SERVER=http://lt.comwork.io:3200
 
 RUN sudo apt-get update -y && \
-    sudo apt-get install -y docker docker-compose && \
+    sudo apt-get install -y docker docker-compose net-tools vim && \
     sudo usermod -aG docker coder && \
     curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | sudo bash && \
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
