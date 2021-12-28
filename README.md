@@ -25,6 +25,7 @@ version: "3.3"
 
 services: 
   code-server:
+    image: comworkio/code-server
     container_name: code-server
     volumes:
       - ./code-config.yaml:/home/coder/.config/code-server/config.yaml:z
