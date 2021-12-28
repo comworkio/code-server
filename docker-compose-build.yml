@@ -1,0 +1,11 @@
+version: "3.3"
+
+services: 
+  code-server:
+    image: comworkio/code-server:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      target: code-server
+      args:
+        CODE_SERVER_VERSION: ${CODE_SERVER_VERSION}

@@ -1,0 +1,27 @@
+stages:
+  - publish
+  - deliver
+  - deploy
+
+mirror:
+  stage: publish
+  script:
+    - setsid ./ci/mirror.sh
+  only:
+    - /^(main.*)$/
+  tags:
+    - mirror
+
+api_x86:
+  stage: deliver
+  script:
+    - setsid ./ci/docker-deliver.sh "x86" "code-server" "3.12.0"
+  only:
+    refs:
+      - /^(main.*)$/
+    changes:
+      - ci/docker-deliver.sh
+      - docker-compose-build.yml
+      - Dockerfile
+  tags:
+    - code-server
