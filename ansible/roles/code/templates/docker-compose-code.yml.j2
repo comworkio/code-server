@@ -6,8 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile.code
     container_name: codercom
+    network_mode: host
     volumes:
       - ./code-config.yaml:/home/coder/.config/code-server/config.yaml:z
+      - ./settings.json:/home/coder/.local/share/code-server/User/settings.json:z
       - /var/run/docker.sock:/var/run/docker.sock
-    ports: 
-      - {{ coder_port }}:{{ coder_internal_port }}

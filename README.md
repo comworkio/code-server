@@ -27,17 +27,16 @@ services:
   code-server:
     image: comworkio/code-server
     container_name: code-server
+    network_mode: host
     volumes:
       - ./code-config.yaml:/home/coder/.config/code-server/config.yaml:z
       - /var/run/docker.sock:/var/run/docker.sock
-    ports: 
-      - {{ coder_port }}:8080
 ```
 
 And the `code-config.yaml` :
 
 ```yaml
-bind-addr: 127.0.0.1:8080
+bind-addr: 0.0.0.0:8080
 auth: password
 password: changeit
 cert: false
