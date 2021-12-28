@@ -21,5 +21,5 @@ RUN sudo apt-get update -y && \
     ln -s "$NODE_HOME/bin/node" /usr/bin && \
     ln -s "$NODE_HOME/bin/npm" /usr/bin && \
     rm -rf node.tgz && \
-    rm -rf "node-v$NODE_VERSION-linux-$NODE_ARCH"
+    rm -rf "node-v$NODE_VERSION-linux-$NODE_ARCH" && \
     npm install -g localtunnel
