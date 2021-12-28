@@ -11,9 +11,9 @@ tag_and_push() {
   docker push "comworkio/${2}:${1}"
 }
 
-COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f "docker-compose-build.yml" build "${IMAGE}"
-
 echo "${DOCKER_ACCESS_TOKEN}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+
+COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f "docker-compose-build.yml" build "${IMAGE}"
 
 tag_and_push "latest" "${IMAGE}"
 tag_and_push "${VERSION}" "${IMAGE}"

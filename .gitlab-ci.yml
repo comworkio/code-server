@@ -12,10 +12,10 @@ mirror:
   tags:
     - mirror
 
-api_x86:
+code-server:
   stage: deliver
   script:
-    - setsid ./ci/docker-deliver.sh "x86" "code-server" "3.12.0"
+    - setsid ./ci/docker-deliver.sh "code-server" "3.12.0"
   only:
     refs:
       - /^(main.*)$/
