@@ -8,7 +8,7 @@ ARG NODE_OS
 
 ENV NODE_HOME=/usr/share/nodejs \
     COMWORK_LOCAL_TUNNEL_SERVER=http://lt.comwork.io:3200 \
-    PATH="${PATH}:${NODE_HOME}/bin"
+    PATH="${PATH}:\${NODE_HOME}/bin"
 
 RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools vim && \
@@ -23,5 +23,4 @@ RUN sudo apt-get update -y && \
     sudo chmod +x "$NODE_HOME/bin/node" /usr/bin && \
     sudo chmod +x "$NODE_HOME/bin/npm" /usr/bin && \
     rm -rf node.tgz && \
-    rm -rf "node-v$NODE_VERSION-$NODE_OS-$NODE_ARCH" && \
-    sudo npm install -g localtunnel
+    sudo $NODE_HOME/bin/npm install -g localtunnel
