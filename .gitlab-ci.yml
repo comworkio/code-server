@@ -24,4 +24,4 @@ code-server:
       - docker-compose-build.yml
       - Dockerfile
   tags:
-    - code-server
+    - imagesbuilder
