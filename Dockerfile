@@ -2,10 +2,6 @@ ARG CODE_SERVER_VERSION
 
 FROM codercom/code-server:${CODE_SERVER_VERSION} AS code-server
 
-ARG NODE_VERSION
-ARG NODE_ARCH
-ARG NODE_OS
-
 ENV NODE_HOME=/usr/share/nodejs \
     COMWORK_LOCAL_TUNNEL_SERVER=http://lt.comwork.io:3200
 
@@ -14,6 +10,10 @@ COPY ./assets/favicon.svg /usr/lib/code-server/src/browser/media/favicon-dark-su
 COPY ./assets/favicon.svg /usr/lib/code-server/src/browser/media/favicon.svg
 COPY ./bash_config.sh /home/coder/.bash_aliases
 COPY ./bash_config.sh /root/.bashrc
+
+ARG NODE_VERSION
+ARG NODE_ARCH
+ARG NODE_OS
 
 RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools vim jq && \
