@@ -1,6 +1,6 @@
 # code-server
 
-Docker images which inherits [this one](https://hub.docker.com/r/codercom/code-server) from [coder.com](https://coder.com) and which embed docker cli, k3d and kubectl for your self-hosted "gitpod's like" environments.
+Yet another "gitpod like environment" you can install directly self-host on your own infrastructure and with the real tools you're using locally everyday. The docker image is inheriting [this one](https://hub.docker.com/r/codercom/code-server) from [coder.com](https://coder.com) and is embedding `docker`, `docker-compose`, `k3d`, `lt` and `kubectl`.
 
 ## Table of contents
 
