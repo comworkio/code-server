@@ -13,7 +13,7 @@ COPY ./assets/favicon.ico /usr/lib/code-server/src/browser/media/favicon.ico
 COPY ./assets/favicon.svg /usr/lib/code-server/src/browser/media/favicon-dark-support.svg
 COPY ./assets/favicon.svg /usr/lib/code-server/src/browser/media/favicon.svg
 COPY ./bash_config.sh /home/coder/.bash_aliases
-COPY ./bash_config.sh /root/.bash_aliases
+COPY ./bash_config.sh /root/.bashrc
 
 RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools vim jq && \
