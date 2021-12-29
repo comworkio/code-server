@@ -14,6 +14,9 @@ COPY ./bash_config.sh /root/.bashrc
 ARG NODE_VERSION
 ARG NODE_ARCH
 ARG NODE_OS
+ARG YQ_VERSION
+ARG YQ_OS
+ARG YQ_ARCH
 
 RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq && \
