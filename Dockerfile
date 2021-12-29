@@ -9,6 +9,12 @@ ARG NODE_OS
 ENV NODE_HOME=/usr/share/nodejs \
     COMWORK_LOCAL_TUNNEL_SERVER=http://lt.comwork.io:3200
 
+COPY ./assets/favicon.ico /usr/lib/code-server/src/browser/media/favicon.ico
+COPY ./assets/favicon.svg /usr/lib/code-server/src/browser/media/favicon-dark-support.svg
+COPY ./assets/favicon.svg /usr/lib/code-server/src/browser/media/favicon.svg
+COPY ./bash_config.sh /home/coder/.bash_aliases
+COPY ./bash_config.sh /root/.bash_aliases
+
 RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools vim jq && \
     git config --global core.editor "vim" && \
@@ -26,10 +32,5 @@ RUN sudo apt-get update -y && \
     sudo chmod +x /usr/bin/npm && \
     rm -rf node.tgz && \
     sudo npm install -g localtunnel && \
-    sudo ln -s $NODE_HOME/bin/lt /usr/bin/lt
-
-COPY ./assets/favicon.ico /usr/lib/code-server/src/browser/media/favicon.ico
-COPY ./assets/favicon.svg /usr/lib/code-server/src/browser/media/favicon-dark-support.svg
-COPY ./assets/favicon.svg /usr/lib/code-server/src/browser/media/favicon.svg
-COPY ./bash_config.sh /home/coder/.bash_aliases
-COPY ./bash_config.sh /root/.bash_aliases
+    sudo ln -s $NODE_HOME/bin/lt /usr/bin/lt && \
+    sudo chown -R coder:coder /home/coder/.bash_aliases
