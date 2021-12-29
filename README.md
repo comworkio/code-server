@@ -12,9 +12,11 @@ Yet another "gitpod like environment" you can install directly self-host on your
 
 Yes [gitpod](https://www.gitpod.io) or [coder.com](https://coder.com) are working really fine and they will probably answer to lots of people. You'll have your fully fonctional web IDE and you'll be able to deploy your services in a serverless / containers based solution provided.
 
-But until now, I used to still work locally because I missed some cli like `docker`, `docker-compose`, [k3d](https://k3d.io) or [localtunnel](https://localtunnel.github.io/www/), `jq`, `yq`. When somebody tells me "I can provide you a fully complete developer|ops local environment on the cloud, you'll just have to use a browser", I expect all my everyday tools to be there.
+But until now, I used to still work locally because I missed some cli like `docker`, `docker-compose`, [k3d](https://k3d.io) or [localtunnel](https://localtunnel.github.io/www/), `jq`, `yq`. When somebody tells me "I can provide you a fully complete developer|ops local environment on the cloud, you'll just have to use a browser", I expect all my everyday tools to be there. I also expect to be able to clone and run any projects I want it with only one limitation: the chosen sizing of my instance (like I had a limit size on my laptop before).
 
 So this is why this alternative exists: you'll have my dream dev environment on the cloud (with all those common CLI) and if OCI containers aren't sufficient for you, you'll also be able to install the missed dependancies you need directly on the terminal.
+
+That's also why we're working on providing a [SaaS version](https://code.comwork.io).
 
 ## Git repositories
 
