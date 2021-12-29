@@ -6,7 +6,7 @@ Yet another "gitpod like environment" you can install directly self-host on your
 
 [[_TOC_]]
 
-## Why not use gitpod directly
+## Why not use gitpod directly?
 
 Yes [gitpod](https://www.gitpod.io) or [coder.com](https://coder.com) are working really great and they will probably answer to lots of people. You'll have your fully fonctional web IDE and you'll be able to deploy your services in a serverless / containers based solution provided.
 
@@ -64,7 +64,7 @@ code_git_workspaces:
     git: https://gitlab.comwork.io/oss/code-server.git
 ```
 
-## Expose your containers with localtunnel
+### Expose your containers with localtunnel
 
 You can expose your containers on internet using [Localtunnel](https://localtunnel.github.io/www/)
 
