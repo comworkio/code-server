@@ -17,7 +17,7 @@ RESET="\033[0;37m"
 
 function ggit () {
   if [[ -d .git ]]; then
-    git "${1}" 2> /dev/null
+    git $@ 2> /dev/null
   else
     echo ""
   fi
@@ -28,7 +28,7 @@ function parse_git_dirty () {
 }
 
 function parse_git_branch () {
- git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/^* \(.*\)/\1$(parse_git_dirty)/" 2>/dev/null
+ ggit branch --no-color | sed -e '/^[^*]/d' -e "s/^* \(.*\)/\1$(parse_git_dirty)/"
 }
 
 export PS1="\[${YELLOW}\]\u\[$WHITE\]\$([[ -n \$(ggit branch) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch) \[$GREEN\]\w\[$WHITE\] $(ggit describe)$ "
