@@ -27,3 +27,7 @@ RUN sudo apt-get update -y && \
     rm -rf node.tgz && \
     sudo npm install -g localtunnel && \
     sudo ln -s $NODE_HOME/bin/lt /usr/bin/lt
+
+COPY ./assets/favicon.ico /usr/lib/code-server/src/browser/media/favicon.ico
+COPY ./assets/favicon.svg /usr/lib/code-server/src/browser/media/favicon-dark-support.svg
+COPY ./assets/favicon.svg /usr/lib/code-server/src/browser/media/favicon.svg
