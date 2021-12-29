@@ -16,7 +16,7 @@ ARG NODE_ARCH
 ARG NODE_OS
 
 RUN sudo apt-get update -y && \
-    sudo apt-get install -y docker docker-compose net-tools vim jq && \
+    sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq && \
     git config --global core.editor "vim" && \
     sudo usermod -aG docker coder && \
     curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | sudo bash && \
@@ -30,6 +30,8 @@ RUN sudo apt-get update -y && \
     sudo ln -s "$NODE_HOME/bin/npm" /usr/bin && \
     sudo chmod +x /usr/bin/node && \
     sudo chmod +x /usr/bin/npm && \
+    sudo wget https://github.com/mikefarah/yq/releases/download/v$YQ_VERSION/yq_$YQ_OS_$YQ_ARCH -O /usr/bin/yq && \
+    sudo chmod +x /usr/bin/yq && \
     rm -rf node.tgz && \
     sudo npm install -g localtunnel && \
     sudo ln -s $NODE_HOME/bin/lt /usr/bin/lt && \
