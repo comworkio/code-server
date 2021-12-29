@@ -26,16 +26,16 @@ RUN sudo apt-get update -y && \
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
     sudo mv kubectl /usr/bin/kubectl && \
     sudo chmod +x /usr/bin/kubectl && \
-    curl -fsSL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-$NODE_OS-$NODE_ARCH.tar.gz" -o node.tgz && \
+    curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-${NODE_OS}-${NODE_ARCH}.tar.gz" -o node.tgz && \
     tar xvzf node.tgz > /dev/null 2>&1 && \
-    sudo mv "node-v$NODE_VERSION-linux-$NODE_ARCH" "$NODE_HOME" && \
-    sudo ln -s "$NODE_HOME/bin/node" /usr/bin && \
-    sudo ln -s "$NODE_HOME/bin/npm" /usr/bin && \
+    sudo mv "node-v${NODE_VERSION}-linux-${NODE_ARCH}" "${NODE_HOME}" && \
+    sudo ln -s "${NODE_HOME}/bin/node" /usr/bin && \
+    sudo ln -s "${NODE_HOME}/bin/npm" /usr/bin && \
     sudo chmod +x /usr/bin/node && \
     sudo chmod +x /usr/bin/npm && \
-    sudo wget https://github.com/mikefarah/yq/releases/download/v$YQ_VERSION/yq_$YQ_OS_$YQ_ARCH -O /usr/bin/yq && \
+    sudo wget "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_${YQ_OS}_${YQ_ARCH}" -O /usr/bin/yq && \
     sudo chmod +x /usr/bin/yq && \
     rm -rf node.tgz && \
     sudo npm install -g localtunnel && \
-    sudo ln -s $NODE_HOME/bin/lt /usr/bin/lt && \
+    sudo ln -s "${NODE_HOM}/bin/lt" /usr/bin/lt && \
     sudo chown -R coder:coder /home/coder/.bash_aliases
