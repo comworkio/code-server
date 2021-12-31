@@ -19,7 +19,8 @@ ARG YQ_VERSION
 ARG TERRAGRUNT_VERSION
 
 RUN sudo apt-get update -y && \
-    sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg && \
+    sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg software-properties-common python3 python3-pip && \
+    sudo pip3 install --upgrade pip && \
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - && \
     sudo apt-add-repository "deb [arch=${OS_ARCH}] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
     sudo apt-get install -y terraform && \
