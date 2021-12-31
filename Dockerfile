@@ -56,7 +56,7 @@ RUN sudo apt-get update -y && \
     sudo chmod +x /usr/bin/terragrunt && \
     sudo npm install -g localtunnel && \
     sudo ln -s "${NODE_HOME}/bin/lt" /usr/bin/lt && \
-    mkdir -p "${HOME_CODER}/.local/share/code-server/extensions" && \
+    sudo mkdir -p "${HOME_CODER}/.local/share/code-server/extensions" && \
     sudo chown -R coder:coder "${HOME_CODER}/.local" && \
     sudo chown -R coder:coder "${HOME_CODER}/.config" && \
     sudo chown -R coder:coder "${HOME_CODER}"
