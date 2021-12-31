@@ -4,6 +4,7 @@ FROM codercom/code-server:${CODE_SERVER_VERSION} AS code-server
 
 ENV NODE_HOME=/usr/share/nodejs \
     HELM_HOME=/usr/share/helm \
+    CODER_HOME=/home/coder \
     COMWORK_LOCAL_TUNNEL_SERVER=http://lt.comwork.io:3200
 
 COPY ./assets/favicon.ico /usr/lib/code-server/src/browser/media/favicon.ico
@@ -55,4 +56,7 @@ RUN sudo apt-get update -y && \
     sudo chmod +x /usr/bin/terragrunt && \
     sudo npm install -g localtunnel && \
     sudo ln -s "${NODE_HOME}/bin/lt" /usr/bin/lt && \
-    sudo chown -R coder:coder /home/coder
+    mkdir -p "${HOME_CODER}/.local/share/code-server/extensions"
+    sudo chown -R coder:coder "${HOME_CODER}/.local"
+    sudo chown -R coder:coder "${HOME_CODER}/.config"
+    sudo chown -R coder:coder "${HOME_CODER}"
