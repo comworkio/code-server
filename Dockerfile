@@ -43,7 +43,7 @@ RUN sudo apt-get update -y && \
     rm -rf node.tgz && \
     curl -fsSL "https://get.helm.sh/helm-v${HELM_VERSION}-${OS}-${OS_ARCH}.tar.gz" -o helm.tgz && \
     tar xvzf helm.tgz > /dev/null 2>&1 && \
-    sudo mv "${OS}-${ARCH_OS}" "${HELM_HOME}" && \
+    sudo mv "${OS}-${OS_ARCH}" "${HELM_HOME}" && \
     sudo ln -s "${HELM_HOME}/helm" /usr/bin && \
     sudo chmod +x /usr/bin/helm && \
     rm -rf helm.tgz && \
