@@ -10,8 +10,8 @@ services:
       args:
         CODE_SERVER_VERSION: ${CODE_SERVER_VERSION}
         NODE_VERSION: 16.13.0
-        NODE_ARCH: x64
-        NODE_OS: linux
         YQ_VERSION: 4.16.2
-        YQ_OS: linux
-        YQ_ARCH: amd64
+        TERRAGRUNT_VERSION: 0.35.16
+        OS: linux
+        OS_ARCH: amd64
+        NODE_ARCH: x64
