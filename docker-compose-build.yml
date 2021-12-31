@@ -12,6 +12,7 @@ services:
         NODE_VERSION: 16.13.0
         YQ_VERSION: 4.16.2
         TERRAGRUNT_VERSION: 0.35.16
+        HELM_VERSION: 3.7.2
         OS: linux
         OS_ARCH: amd64
         NODE_ARCH: x64

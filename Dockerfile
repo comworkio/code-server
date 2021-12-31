@@ -3,6 +3,7 @@ ARG CODE_SERVER_VERSION
 FROM codercom/code-server:${CODE_SERVER_VERSION} AS code-server
 
 ENV NODE_HOME=/usr/share/nodejs \
+    HELM_HOME=/usr/share/helm \
     COMWORK_LOCAL_TUNNEL_SERVER=http://lt.comwork.io:3200
 
 COPY ./assets/favicon.ico /usr/lib/code-server/src/browser/media/favicon.ico
@@ -16,6 +17,7 @@ ARG OS_ARCH
 ARG NODE_VERSION
 ARG NODE_ARCH
 ARG YQ_VERSION
+ARG HELM_VERSION
 ARG TERRAGRUNT_VERSION
 
 RUN sudo apt-get update -y && \
@@ -38,11 +40,17 @@ RUN sudo apt-get update -y && \
     sudo ln -s "${NODE_HOME}/bin/npm" /usr/bin && \
     sudo chmod +x /usr/bin/node && \
     sudo chmod +x /usr/bin/npm && \
+    rm -rf node.tgz && \
+    curl -fsSL "https://get.helm.sh/helm-v${HELM_VERSION}-${OS}-${ARCH_OS}.tar.gz" -o helm.tgz && \
+    tar xvzf helm.tgz > /dev/null 2>&1 && \
+    sudp mv "${OS}-${ARCH_OS}" "${HELM_HOME}" && \
+    sudo ln -s "${HELM_HOME}/helm" /usr/bin && \
+    sudo chmod +x /usr/bin/helm && \
+    rm -rf helm.tgz && \
     sudo wget "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_${OS}_${OS_ARCH}" -O /usr/bin/yq && \
     sudo chmod +x /usr/bin/yq && \
     sudo wget "https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_${OS}_${OS_ARCH}" -O /usr/bin/terragrunt && \
     sudo chmod +x /usr/bin/terragrunt && \
-    rm -rf node.tgz && \
     sudo npm install -g localtunnel && \
     sudo ln -s "${NODE_HOME}/bin/lt" /usr/bin/lt && \
     sudo chown -R coder:coder /home/coder/.bash_aliases
