@@ -19,9 +19,10 @@ ARG YQ_VERSION
 ARG TERRAGRUNT_VERSION
 
 RUN sudo apt-get update -y && \
+    sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg && \
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - && \
     sudo apt-add-repository "deb [arch=${OS_ARCH}] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
-    sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq terraform && \
+    sudo apt-get install -y terraform && \
     git config --global core.editor "vim" && \
     sudo usermod -aG docker coder && \
     curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | sudo bash && \
