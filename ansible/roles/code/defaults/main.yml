@@ -1,6 +1,6 @@
 ---
 coder_server_image: comworkio/code-server
-coder_server_version: 3.12.0-1.11
+coder_server_version: 3.12.0-1.12
 code_server_default_theme: "Default Dark+"
 coder_port: 8080
 coder_bind_ip: 0.0.0.0
