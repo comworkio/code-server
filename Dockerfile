@@ -41,5 +41,5 @@ RUN sudo apt-get update -y && \
     sudo chmod +x /usr/bin/terragrunt && \
     rm -rf node.tgz && \
     sudo npm install -g localtunnel && \
-    sudo ln -s "${NODE_HOM}/bin/lt" /usr/bin/lt && \
+    sudo ln -s "${NODE_HOME}/bin/lt" /usr/bin/lt && \
     sudo chown -R coder:coder /home/coder/.bash_aliases
