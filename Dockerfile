@@ -40,7 +40,7 @@ RUN sudo apt-get update -y && \
     sudo chmod +x /usr/bin/npm && \
     sudo wget "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_${OS}_${OS_ARCH}" -O /usr/bin/yq && \
     sudo chmod +x /usr/bin/yq && \
-    sudo wget "https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_${OS}_${OS_ARCH}"  -O /usr/bin/terragrunt && \
+    sudo wget "https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_${OS}_${OS_ARCH}" -O /usr/bin/terragrunt && \
     sudo chmod +x /usr/bin/terragrunt && \
     rm -rf node.tgz && \
     sudo npm install -g localtunnel && \
