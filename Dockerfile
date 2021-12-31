@@ -24,7 +24,7 @@ RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg software-properties-common python3 python3-pip ansible && \
     sudo pip3 install --upgrade pip && \
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - && \
-    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
     sudo apt-add-repository "deb [arch=${OS_ARCH}] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
     sudo apt-add-repository "deb https://packages.cloud.google.com/apt cloud-sdk main" && \
     sudo apt-get update -y && \
