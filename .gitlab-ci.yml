@@ -23,5 +23,6 @@ code-server:
       - ci/docker-deliver.sh
       - docker-compose-build.yml
       - Dockerfile
+      - bash_config.sh
   tags:
     - imagesbuilder
