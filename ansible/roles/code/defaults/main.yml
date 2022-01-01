@@ -13,6 +13,10 @@ code_git_workspaces:
   - name: code-server
     git: https://gitlab.comwork.io/oss/code-server.git
 
+## oci_registries:   
+##   - url: harbor.yourbusiness.com
+##     login: your login
+##     password: <password value>
 oci_registries: []
 
 ## ssh_servers_config:
