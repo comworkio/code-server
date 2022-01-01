@@ -11,6 +11,15 @@ RUN mkdir -p /home/coder/projects && \
     git pull --rebase 2>/dev/null || :
 {% endfor %}
 
+RUN mkdir -p /home/coder/.ssh && \
+    chmod -R 700 /home/coder/.ssh
+
+{% for key in ssh_private_keys_b64 %}
+RUN echo "{{ key.value }}" | base64 -d > "/home/coder/.ssh/{{ key.name }}" && \
+    chmod 600 "/home/coder/.ssh/{{ key.name }}"
+
+{% endfor %}
+
 {% for registry in oci_registries %}
 RUN echo "{{ registry.password }}" | docker login -u "{{ registry.login }}" "{{ registry.url }}" --password-stdin
 
