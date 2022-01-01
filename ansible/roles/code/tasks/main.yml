@@ -1,5 +1,15 @@
 
 ---
+- name: Create coder folders
+  become: yes
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: directory
+    mode: "{{ item.mode }}"
+    recurse: "{{ item.recurse }}"
+  with_items:
+    - { path: "{{ node_home }}/extensions", recurse: no, mode: '0777'}
+
 - name: Create coder files
   become: yes
   template:

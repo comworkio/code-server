@@ -9,5 +9,6 @@ services:
     network_mode: host
     volumes:
       - ./code-config.yaml:/home/coder/.config/code-server/config.yaml:z
+      - ./extensions:/home/coder/.local/share/code-server/extensions:z
       - ./settings.json:/home/coder/.local/share/code-server/User/settings.json:z
       - /var/run/docker.sock:/var/run/docker.sock
