@@ -1,7 +1,11 @@
 {% for server in ssh_servers_config %}
 host {{ server.name }}
   HostName {{ server.hostname }}
+{% if server.ssh_port is defined %} 
   port {{ server.ssh_port }}
+{% else %}
+  port 22
+{% endif %}
   user {{ server.ssh_username }}
   identityfile ~/.ssh/{{ server.ssh_private_key_ref }}
 {% if server.keep_alive is defined %} 
