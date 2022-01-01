@@ -58,5 +58,7 @@ RUN sudo apt-get update -y && \
     sudo ln -s "${NODE_HOME}/bin/lt" /usr/bin/lt && \
     sudo mkdir -p "${CODER_HOME}/.local/share/code-server/extensions" && \
     sudo chown -R coder:coder "${CODER_HOME}" && \
+    sudo mkdir -p "${CODER_HOME}/.config/gcloud/configurations" && \
+    sudo chown -R coder:coder "${CODER_HOME}/.config/gcloud" && \
     sudo apt remove -y software-properties-common && \
     sudo rm -rf /var/lib/apt/lists/*
