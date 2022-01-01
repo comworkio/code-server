@@ -50,9 +50,9 @@ RUN sudo apt-get update -y && \
     sudo ln -s "${HELM_HOME}/helm" /usr/bin && \
     sudo chmod +x /usr/bin/helm && \
     rm -rf helm.tgz && \
-    sudo wget "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_${OS}_${OS_ARCH}" -O /usr/bin/yq && \
+    sudo wget -q "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_${OS}_${OS_ARCH}" -O /usr/bin/yq && \
     sudo chmod +x /usr/bin/yq && \
-    sudo wget "https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_${OS}_${OS_ARCH}" -O /usr/bin/terragrunt && \
+    sudo wget -q "https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_${OS}_${OS_ARCH}" -O /usr/bin/terragrunt && \
     sudo chmod +x /usr/bin/terragrunt && \
     sudo npm install -g localtunnel && \
     sudo ln -s "${NODE_HOME}/bin/lt" /usr/bin/lt && \
