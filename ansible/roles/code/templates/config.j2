@@ -7,7 +7,11 @@ host {{ server.name }}
   port 22
 {% endif %}
   user {{ server.ssh_username }}
+{% if server.ssh_private_key_ref is defined %} 
   identityfile ~/.ssh/{{ server.ssh_private_key_ref }}
+{% else %}
+  identityfile ~/.ssh/id_rsa
+{% endif %}
 {% if server.keep_alive is defined %} 
   ServerAliveInterval {{ server.keep_alive }}
 {% else %}

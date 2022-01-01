@@ -20,9 +20,10 @@ code_git_workspaces:
 oci_registries: []
 
 ## ssh_servers_config:
-##   - hostname: <ipv4 value>
+##   - name: <server name>
+##     hostname: <ipv4 value>
 ##     ssh_port: 22
-##     ssh_username: yourname
+##     ssh_username: <username>
 ##     ssh_private_key_ref: id_rsa
 ssh_servers_config: []
 
