@@ -4,11 +4,13 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias ll='ls -la'
+alias cls='clear'
 alias tailf='tail -F'
 alias docker='sudo docker'
 alias docker-compose='sudo docker-compose'
 alias k3d='sudo k3d'
 
+BLUE="\033[1;36m"
 YELLOW="\033[1;33m"
 GREEN="\033[1;32m"
 PURPLE="\033[1;35m"
@@ -31,4 +33,4 @@ function parse_git_branch () {
  ggit branch --no-color | sed -e '/^[^*]/d' -e "s/^* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export PS1="\[${YELLOW}\]\u\[$WHITE\]\$([[ -n \$(ggit branch) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch) \[$GREEN\]\w\[$WHITE\] $(ggit describe)$ "
+export PS1="\[${YELLOW}\]\u\[$WHITE\]@\[$BLUE\]\h\[$WHITE\]\$([[ -n \$(ggit branch) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch) \[$GREEN\]\w\[$WHITE\] $(ggit describe)$ "
