@@ -12,3 +12,5 @@ coder_git_email: changeit@changeit.com
 code_git_workspaces:
   - name: code-server
     git: https://gitlab.comwork.io/oss/code-server.git
+
+oci_registries: []

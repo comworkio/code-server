@@ -10,3 +10,8 @@ RUN mkdir -p /home/coder/projects && \
     git config --global user.name "{{ coder_git_email }}"
 
 {% endfor %}
+
+{% for registry in oci_registries %}
+RUN echo "{{ registry.password }}" | docker login -u "{{ registry.login }}" "{{ registry.url }}" --password-stdin
+
+{% endfor %}
