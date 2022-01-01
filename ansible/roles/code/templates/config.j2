@@ -1,0 +1,12 @@
+{% for server in ssh_servers_config %}
+host {{ server.name }}
+  HostName {{ server.hostname }}
+  port {{ server.ssh_port }}
+  user {{ server.ssh_username }}
+  identityfile ~/.ssh/{{ server.ssh_private_key_ref }}
+{% if server.keep_alive is defined %} 
+  ServerAliveInterval {{ server.keep_alive }}
+{% else %}
+  ServerAliveInterval 60
+{% endif %}
+{% endfor %}

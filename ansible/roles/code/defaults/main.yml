@@ -14,3 +14,15 @@ code_git_workspaces:
     git: https://gitlab.comwork.io/oss/code-server.git
 
 oci_registries: []
+
+## ssh_servers_config:
+##   - hostname: <ipv4 value>
+##     ssh_port: 22
+##     ssh_username: yourname
+##     ssh_private_key_ref: id_rsa
+ssh_servers_config: []
+
+## ssh_private_keys_b64:
+##   - name: id_rsa
+##     value: value_base64_encoded
+ssh_private_keys_b64: []

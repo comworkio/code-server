@@ -9,6 +9,7 @@
     recurse: "{{ item.recurse }}"
   with_items:
     - { path: "{{ node_home }}/extensions", recurse: no, mode: '0777'}
+    - { path: "{{ node_home }}/ssh_coder_conf", recurse: no, mode: '0700'}
 
 - name: Create coder files
   become: yes
@@ -23,6 +24,15 @@
     - { template: code_start.sh , path: "{{ node_home }}", mode: '0755' }
     - { template: code-config.yaml , path: "{{ node_home }}", mode: '0755' }
     - { template: settings.json , path: "{{ node_home }}", mode: '0777' }
+    - { template: config , path: "{{ node_home }}/ssh_coder_conf", mode: '0644' }
+
+- name: Create ssh keys
+  become: yes
+  template:
+    src: "ssh_key.j2"
+    dest: "{{ node_home }}/ssh_coder_conf/{{ item.name }}"
+    mode: '0600'
+  with_items: "{{ ssh_private_keys_b64 }}"
 
 - name: Run the container
   become: yes
