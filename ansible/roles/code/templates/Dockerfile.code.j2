@@ -20,6 +20,13 @@ RUN echo "{{ key.value }}" | base64 -d > "/home/coder/.ssh/{{ key.name }}" && \
 
 {% endfor %}
 
+{% for key in gpg_keys_b64 %}
+RUN echo "{{ key.value }}" | base64 -d > "{{ key.user }}.key" && \
+    gpg --import "{{ key.user }}.key" && \
+    rm -rf "{{ key.user }}.key"
+
+{% endfor %}
+
 {% for registry in oci_registries %}
 RUN echo "{{ registry.password }}" | docker login -u "{{ registry.login }}" "{{ registry.url }}" --password-stdin
 

@@ -31,3 +31,8 @@ ssh_servers_config: []
 ##   - name: id_rsa
 ##     value: value_base64_encoded
 ssh_private_keys_b64: []
+
+## gpg_keys_b64:
+##   - user: <email user>
+##     value: value_base64_encoded
+gpg_keys_b64: []
