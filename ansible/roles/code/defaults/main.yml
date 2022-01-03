@@ -8,6 +8,7 @@ code_force_recreate: true
 code_force_rebuild: true
 coder_password: changeit
 coder_git_email: changeit@changeit.com
+kube_config_dir: /home/coder/.kube
 
 code_git_workspaces:
   - name: code-server
@@ -36,3 +37,9 @@ ssh_private_keys_b64: []
 ##   - user: <email user>
 ##     value: value_base64_encoded
 gpg_keys_b64: []
+
+## kube_configs_b64:
+##   - filename: <file name>
+##     value: value_base64_encoded
+##     current_ctx: true|false (make a symlink to .kube/config file)
+kube_configs_b64: []

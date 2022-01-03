@@ -27,6 +27,17 @@ RUN echo "{{ key.value }}" | base64 -d > "{{ key.user }}.key" && \
 
 {% endfor %}
 
+RUN mkdir -p "{{ kube_config_dir }}"
+
+{% for kubeconfig in kube_configs_b64 %}
+RUN echo "{{ kubeconfig.value }}" | base64 -d > "{{ kube_config_dir }}/{{ kubeconfig.filename }}"
+
+{% if kubeconfig.current_ctx is defined and kubeconfig.current_ctx %} 
+RUN ln -s "{{ kube_config_dir }}/{{ kubeconfig.filename }}" "{{ kube_config_dir }}/config"
+
+{% endif %}
+{% endfor %}
+
 {% for registry in oci_registries %}
 RUN echo "{{ registry.password }}" | docker login -u "{{ registry.login }}" "{{ registry.url }}" --password-stdin
 
