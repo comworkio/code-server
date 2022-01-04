@@ -8,7 +8,7 @@ RUN mkdir -p /home/coder/projects && \
     git config credential.helper store && \
     git config --global user.email "{{ coder_git_email }}" && \
     git config --global user.name "{{ coder_git_email }}" && \
-    git pull --rebase 2>/dev/null || :
+    git pull 2>/dev/null || :
 {% endfor %}
 
 RUN mkdir -p /home/coder/.ssh && \
