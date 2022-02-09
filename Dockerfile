@@ -54,11 +54,11 @@ RUN sudo apt-get update -y && \
     sudo ln -s "${HELM_HOME}/helm" /usr/bin && \
     sudo chmod +x /usr/bin/helm && \
     rm -rf helm.tgz && \
-    mkdir -p "${K9S_HOME}" && \
-    sudo wget -q "https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_${K9S_OS}_${K9S_ARCH}.tar.gz" -O k9s.tgz && \
-    tar xvzf k9s.tgz -C "${K9S_HOME}" > /dev/null 2>&1 && \
-    ln -s "${K9S_HOME}/k9s" /usr/bin/k9s && \
-    chmod +x /usr/bin/k9s && \
+    sudo mkdir -p "${K9S_HOME}" && \
+    wget -q "https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_${K9S_OS}_${K9S_ARCH}.tar.gz" -O k9s.tgz && \
+    sudo tar xvzf k9s.tgz -C "${K9S_HOME}" > /dev/null 2>&1 && \
+    sudo ln -s "${K9S_HOME}/k9s" /usr/bin/k9s && \
+    sudo chmod +x /usr/bin/k9s && \
     rm -rf k9s.tgz && \
     sudo wget -q "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_${OS}_${OS_ARCH}" -O /usr/bin/yq && \
     sudo chmod +x /usr/bin/yq && \
