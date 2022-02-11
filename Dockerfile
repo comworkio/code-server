@@ -5,6 +5,7 @@ FROM codercom/code-server:${CODE_SERVER_VERSION} AS code-server
 ENV NODE_HOME=/usr/share/nodejs \
     HELM_HOME=/usr/share/helm \
     K9S_HOME=/usr/share/k9s \
+    KUBESEAL_HOME=/usr/share/kubeseal \
     CODER_HOME=/home/coder \
     COMWORK_LOCAL_TUNNEL_SERVER=http://lt.comwork.io:3200
 
@@ -24,6 +25,7 @@ ARG YQ_VERSION
 ARG HELM_VERSION
 ARG TERRAGRUNT_VERSION
 ARG K9S_VERSION
+ARG KUBESEAL_VERSION
 
 RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg software-properties-common python3 python3-pip ansible && \
@@ -60,6 +62,12 @@ RUN sudo apt-get update -y && \
     sudo ln -s "${K9S_HOME}/k9s" /usr/bin/k9s && \
     sudo chmod +x /usr/bin/k9s && \
     rm -rf k9s.tgz && \
+    sudo mkdir -p "${KUBESEAL_HOME}" && \
+    wget -q "https://github.com/bitnami-labs/sealed-secrets/releases/download/v${KUBESEAL_VERSION}/kubeseal-${KUBESEAL_VERSION}-${OS}-${KUBESEAL_ARCH}.tar.gz" -O kubeseal.tgz && \
+    sudo tar xvzf kubseal.tgz -C "${KUBESEAL_HOME}" > /dev/null 2>&1 && \
+    sudo ln -s "${KUBESEAL_HOME}/kubeseal" /usr/bin/kubeseal && \
+    sudo chmod +x /usr/bin/kubeseal && \
+    rm -rf kubseal.tgz && \
     sudo wget -q "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_${OS}_${OS_ARCH}" -O /usr/bin/yq && \
     sudo chmod +x /usr/bin/yq && \
     sudo wget -q "https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_${OS}_${OS_ARCH}" -O /usr/bin/terragrunt && \

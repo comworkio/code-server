@@ -19,3 +19,5 @@ services:
         NODE_ARCH: x64
         K9S_OS: Linux
         K9S_ARCH: x86_64
+        KUBESEAL_VERSION: 0.17.3
+        KUBESEAL_ARCH: amd64
