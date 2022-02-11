@@ -64,10 +64,10 @@ RUN sudo apt-get update -y && \
     rm -rf k9s.tgz && \
     sudo mkdir -p "${KUBESEAL_HOME}" && \
     wget -q "https://github.com/bitnami-labs/sealed-secrets/releases/download/v${KUBESEAL_VERSION}/kubeseal-${KUBESEAL_VERSION}-${OS}-${KUBESEAL_ARCH}.tar.gz" -O kubeseal.tgz && \
-    sudo tar xvzf kubseal.tgz -C "${KUBESEAL_HOME}" > /dev/null 2>&1 && \
+    sudo tar xvzf kubeseal.tgz -C "${KUBESEAL_HOME}" > /dev/null 2>&1 && \
     sudo ln -s "${KUBESEAL_HOME}/kubeseal" /usr/bin/kubeseal && \
     sudo chmod +x /usr/bin/kubeseal && \
-    rm -rf kubseal.tgz && \
+    rm -rf kubeseal.tgz && \
     sudo wget -q "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_${OS}_${OS_ARCH}" -O /usr/bin/yq && \
     sudo chmod +x /usr/bin/yq && \
     sudo wget -q "https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_${OS}_${OS_ARCH}" -O /usr/bin/terragrunt && \
