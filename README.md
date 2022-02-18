@@ -20,7 +20,7 @@ That's also why we're working on providing a [SaaS version](https://code.comwork
 
 ## Git repositories
 
-* Main repo: https://gitlab.comwork.io/oss/code-server
+* Main repo: https://gitlab.comwork.io/oss/ansible-iac/code-server
 * Github mirror: https://github.com/idrissneumann/code-server.git
 * Gitlab mirror: https://gitlab.com/ineumann/code-server.git
 * Bitbucket mirror: https://bitbucket.org/idrissneumann/code-server.git
