@@ -15,7 +15,7 @@ mirror:
 code-server:
   stage: deliver
   script:
-    - setsid ./ci/docker-deliver.sh "code-server" "4.0.2" "1.1"
+    - setsid ./ci/docker-deliver.sh "code-server" "4.0.2" "1.2"
   only:
     refs:
       - /^(main.*)$/

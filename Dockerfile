@@ -29,7 +29,7 @@ ARG KUBESEAL_VERSION
 ARG KUBESEAL_ARCH
 
 RUN sudo apt-get update -y && \
-    sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg software-properties-common python3 python3-pip ansible && \
+    sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg software-properties-common python3 python3-pip ansible mc && \
     sudo pip3 install --upgrade pip && \
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - && \
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
@@ -79,5 +79,7 @@ RUN sudo apt-get update -y && \
     sudo chown -R coder:coder "${CODER_HOME}" && \
     sudo mkdir -p "${CODER_HOME}/.config/gcloud/configurations" && \
     sudo chown -R coder:coder "${CODER_HOME}/.config/gcloud" && \
+    sudo mkdir -p "${CODER_HOME}/.config/mc" && \
+    sudo chown -R coder:coder "${CODER_HOME}/.config/mc" && \
     sudo apt remove -y software-properties-common && \
     sudo rm -rf /var/lib/apt/lists/*
