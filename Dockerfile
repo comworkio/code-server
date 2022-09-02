@@ -25,8 +25,8 @@ ARG YQ_VERSION
 ARG HELM_VERSION
 ARG TERRAGRUNT_VERSION
 ARG K9S_VERSION
-ARG KUBESEAL_VERSION
 ARG KUBESEAL_ARCH
+ARG KUBESEAL_VERSION
 
 RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg software-properties-common python3 python3-pip ansible mc && \
