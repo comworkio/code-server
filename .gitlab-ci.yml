@@ -20,6 +20,7 @@ code-server:
     refs:
       - /^(main.*)$/
     changes:
+      - .gitlab-ci.yml
       - ci/docker-deliver.sh
       - docker-compose-build.yml
       - Dockerfile
