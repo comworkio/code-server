@@ -82,10 +82,6 @@ lt --port 8080
 
 You containers will have to map the same tcp port on the local network.
 
-You can also use the comwork.io instance of server tunnels if you've been authorized by comwork this way:
-
-```shell
-lt --port 8080 $COMWORK_LOCAL_TUNNEL_SERVER
-```
+In order to keep the same public TLS url on your own DNS zone, you can use this [comwork cloud service](https://doc.cloud.comwork.io/docs/tutorials/localtunnel)
 
 Either way, you'll get an url as output that you'll be able to share with other people arround the world !
