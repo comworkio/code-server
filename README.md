@@ -16,7 +16,7 @@ But until now, I used to still work locally because I missed some cli like `dock
 
 So this is why this alternative exists: you'll have my dream dev environment on the cloud (with all those common CLI) and if OCI containers aren't sufficient for you, you'll also be able to install the missed dependancies you need directly on the terminal.
 
-That's also why we're working on providing a [SaaS version](https://code.comwork.io).
+That's also why we're working on providing a [SaaS version](https://doc.cloud.comwork.io/docs/code).
 
 ## Git repositories
 
