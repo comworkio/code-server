@@ -27,9 +27,10 @@ ARG TERRAGRUNT_VERSION
 ARG K9S_VERSION
 ARG KUBESEAL_ARCH
 ARG KUBESEAL_VERSION
+ARG MC_ARCH
 
 RUN sudo apt-get update -y && \
-    sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg software-properties-common python3 python3-pip ansible mc tmux && \
+    sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg software-properties-common python3 python3-pip ansible tmux && \
     sudo pip3 install --upgrade pip && \
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - && \
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
@@ -43,6 +44,8 @@ RUN sudo apt-get update -y && \
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/${OS}/${OS_ARCH}/kubectl" && \
     sudo mv kubectl /usr/bin/kubectl && \
     sudo chmod +x /usr/bin/kubectl && \
+    curl -fsSL "https://dl.min.io/client/mc/release/linux-${MC_ARCH}/mc" -o /usr/bin/mc && \
+    chmod +x /usr/bin/mc && \
     curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-${OS}-${NODE_ARCH}.tar.gz" -o node.tgz && \
     tar xvzf node.tgz > /dev/null 2>&1 && \
     sudo mv "node-v${NODE_VERSION}-linux-${NODE_ARCH}" "${NODE_HOME}" && \
@@ -58,7 +61,7 @@ RUN sudo apt-get update -y && \
     sudo chmod +x /usr/bin/helm && \
     rm -rf helm.tgz && \
     sudo mkdir -p "${K9S_HOME}" && \
-    wget -q "https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_${K9S_OS}_${K9S_ARCH}.tar.gz" -O k9s.tgz && \
+    curl -fsSL "https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_${K9S_OS}_${K9S_ARCH}.tar.gz" -o k9s.tgz && \
     sudo tar xvzf k9s.tgz -C "${K9S_HOME}" > /dev/null 2>&1 && \
     sudo ln -s "${K9S_HOME}/k9s" /usr/bin/k9s && \
     sudo chmod +x /usr/bin/k9s && \
