@@ -9,15 +9,15 @@ services:
       target: code-server
       args:
         CODE_SERVER_VERSION: ${CODE_SERVER_VERSION}
-        NODE_VERSION: 16.13.0
-        YQ_VERSION: 4.16.2
-        TERRAGRUNT_VERSION: 0.35.16
-        HELM_VERSION: 3.7.2
-        K9S_VERSION: 0.25.18
+        NODE_VERSION: 18.14.0
+        YQ_VERSION: 4.30.8
+        TERRAGRUNT_VERSION: 0.43.2
+        HELM_VERSION: 3.11.0
+        K9S_VERSION: 0.27.2
         OS: linux
         OS_ARCH: amd64
         NODE_ARCH: x64
         K9S_OS: Linux
         K9S_ARCH: x86_64
-        KUBESEAL_VERSION: 0.17.3
+        KUBESEAL_VERSION: 0.19.4
         KUBESEAL_ARCH: amd64
