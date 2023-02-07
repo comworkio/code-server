@@ -45,8 +45,8 @@ RUN sudo apt-get update -y && \
     sudo mv kubectl /usr/bin/kubectl && \
     sudo chmod +x /usr/bin/kubectl && \
     curl -LO -fsSL "https://dl.min.io/client/mc/release/linux-${MC_ARCH}/mc" && \
-    mv mc /usr/bin && \
-    chmod +x /usr/bin/mc && \
+    sudo mv mc /usr/bin && \
+    sudo chmod +x /usr/bin/mc && \
     curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-${OS}-${NODE_ARCH}.tar.gz" -o node.tgz && \
     tar xvzf node.tgz > /dev/null 2>&1 && \
     sudo mv "node-v${NODE_VERSION}-linux-${NODE_ARCH}" "${NODE_HOME}" && \
