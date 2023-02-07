@@ -44,7 +44,8 @@ RUN sudo apt-get update -y && \
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/${OS}/${OS_ARCH}/kubectl" && \
     sudo mv kubectl /usr/bin/kubectl && \
     sudo chmod +x /usr/bin/kubectl && \
-    curl -fsSL "https://dl.min.io/client/mc/release/linux-${MC_ARCH}/mc" -o /usr/bin/mc && \
+    curl -LO -fsSL "https://dl.min.io/client/mc/release/linux-${MC_ARCH}/mc" && \
+    mv mc /usr/bin && \
     chmod +x /usr/bin/mc && \
     curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-${OS}-${NODE_ARCH}.tar.gz" -o node.tgz && \
     tar xvzf node.tgz > /dev/null 2>&1 && \
