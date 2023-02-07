@@ -47,6 +47,10 @@ RUN sudo apt-get update -y && \
     curl -LO -fsSL "https://dl.min.io/client/mc/release/linux-${MC_ARCH}/mc" && \
     sudo mv mc /usr/bin && \
     sudo chmod +x /usr/bin/mc && \
+    curl -fsSL "https://gitlab.comwork.io/oss/cwc/cwc/-/releases/v${CWC_VERSION}/downloads/cwc_${CWC_ARCH}_linux_amd64.tar.gz" -o "cwc_cli.tar.gz" && \
+    mkdir cwc_cli && tar -xf cwc_cli.tar.gz -C cwc_cli && \
+    chmod +x ./cwc_cli/install.sh && \
+    sudo ./cwc_cli/install.sh && \
     curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-${OS}-${NODE_ARCH}.tar.gz" -o node.tgz && \
     tar xvzf node.tgz > /dev/null 2>&1 && \
     sudo mv "node-v${NODE_VERSION}-linux-${NODE_ARCH}" "${NODE_HOME}" && \

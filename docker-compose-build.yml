@@ -22,3 +22,5 @@ services:
         KUBESEAL_VERSION: 0.19.4
         KUBESEAL_ARCH: amd64
         MC_ARCH: amd64
+        CWC_VERSION: 1.6.7
+        CWC_ARCH: amd64
