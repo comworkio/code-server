@@ -28,6 +28,8 @@ ARG K9S_VERSION
 ARG KUBESEAL_ARCH
 ARG KUBESEAL_VERSION
 ARG MC_ARCH
+ARG CWC_VERSION
+ARG CWC_ARCH
 
 RUN sudo apt-get update -y && \
     sudo apt-get install -y docker docker-compose net-tools iputils-ping wget vim jq gnupg software-properties-common python3 python3-pip ansible tmux && \
@@ -44,7 +46,7 @@ RUN sudo apt-get update -y && \
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/${OS}/${OS_ARCH}/kubectl" && \
     sudo mv kubectl /usr/bin/kubectl && \
     sudo chmod +x /usr/bin/kubectl && \
-    curl -LO -fsSL "https://dl.min.io/client/mc/release/linux-${MC_ARCH}/mc" && \
+    curl -LO "https://dl.min.io/client/mc/release/linux-${MC_ARCH}/mc" && \
     sudo mv mc /usr/bin && \
     sudo chmod +x /usr/bin/mc && \
     curl -fsSL "https://gitlab.comwork.io/oss/cwc/cwc/-/releases/v${CWC_VERSION}/downloads/cwc_${CWC_VERSION}_linux_${CWC_ARCH}.tar.gz" -o "cwc_cli.tar.gz" && \
