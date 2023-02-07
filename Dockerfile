@@ -53,6 +53,7 @@ RUN sudo apt-get update -y && \
     mkdir cwc_cli && tar -xf cwc_cli.tar.gz -C cwc_cli && \
     chmod +x ./cwc_cli/install.sh && \
     sudo ./cwc_cli/install.sh && \
+    rm -rf cwc_cli.tar.gz && \
     curl -fsSL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-${OS}-${NODE_ARCH}.tar.gz" -o node.tgz && \
     tar xvzf node.tgz > /dev/null 2>&1 && \
     sudo mv "node-v${NODE_VERSION}-linux-${NODE_ARCH}" "${NODE_HOME}" && \
@@ -92,4 +93,6 @@ RUN sudo apt-get update -y && \
     sudo mkdir -p "${CODER_HOME}/.config/mc" && \
     sudo chown -R coder:coder "${CODER_HOME}/.config/mc" && \
     sudo apt remove -y software-properties-common && \
-    sudo rm -rf /var/lib/apt/lists/*
+    sudo rm -rf /var/lib/apt/lists/* && \
+    rm -rf .wget-hsts
+
