@@ -21,9 +21,8 @@ That's also why we're working on providing a [SaaS version](https://doc.cloud.co
 ## Git repositories
 
 * Main repo: https://gitlab.comwork.io/oss/ansible-iac/code-server
-* Github mirror: https://github.com/idrissneumann/code-server.git
+* Github mirror: https://github.com/comworkio/code-server.git
 * Gitlab mirror: https://gitlab.com/ineumann/code-server.git
-* Froggit mirror: https://lab.frogg.it/ineumann/code-server.git
 
 ## Getting started
 
